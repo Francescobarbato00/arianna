@@ -35,7 +35,7 @@ const Home = () => {
 
       {/* Immagine: diventa full width su mobile */}
       <div className="w-full md:w-1/2 bg-[#003552] relative flex items-center justify-center">
-        <div className="absolute top-0 right-0 w-full h-full">
+        <div className="w-full h-[300px] md:h-full relative">
           <Image
             src="/quadrato.jpg" // Percorso corretto dell'immagine
             alt="Corporate Building"
