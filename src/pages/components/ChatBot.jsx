@@ -15,14 +15,14 @@ const ChatBot = () => {
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
-      const updatedMessages = [...messages, { text: newMessage, sender: "user", time: getCurrentTime() }];
+      const updatedMessages = [...messages, { text: newMessage, sender: 'user', time: getCurrentTime() }];
       setMessages(updatedMessages);
       setNewMessage('');
 
       // Simula una risposta automatica con l'effetto "typing"
       setBotTyping(true);
       setTimeout(() => {
-        simulateTypingEffect("Grazie per il tuo messaggio! Ti risponderemo a breve.");
+        simulateTypingEffect('Grazie per il tuo messaggio! Ti risponderemo a breve.');
       }, 1000);
     }
   };
@@ -35,15 +35,15 @@ const ChatBot = () => {
         displayedText += responseText[index];
         setMessages((prevMessages) => {
           const lastMessage = prevMessages[prevMessages.length - 1];
-          if (lastMessage && lastMessage.sender === "bot" && lastMessage.typing) {
+          if (lastMessage && lastMessage.sender === 'bot' && lastMessage.typing) {
             // Se esiste già un messaggio "bot" in stato di scrittura, aggiorniamo solo il testo
             return [
               ...prevMessages.slice(0, -1),
-              { ...lastMessage, text: displayedText }
+              { ...lastMessage, text: displayedText },
             ];
           }
           // Aggiungiamo un nuovo messaggio "bot" con stato di scrittura
-          return [...prevMessages, { text: displayedText, sender: "bot", time: getCurrentTime(), typing: true }];
+          return [...prevMessages, { text: displayedText, sender: 'bot', time: getCurrentTime(), typing: true }];
         });
         index++;
       } else {
@@ -78,27 +78,27 @@ const ChatBot = () => {
 
       {/* Finestra della chat */}
       {isOpen && (
-        <div className="fixed bottom-24 right-8 w-96 bg-white shadow-2xl rounded-xl p-4 z-50 transform transition-all duration-300 ease-in-out">
+        <div className="fixed bottom-24 right-4 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-white shadow-2xl rounded-xl p-4 z-50 transform transition-all duration-300 ease-in-out">
           <div className="flex justify-between items-center border-b pb-2 mb-2">
             <h2 className="text-lg font-bold text-gray-800">Assistente Virtuale</h2>
-            <button onClick={toggleChat} className="text-gray-500 hover:text-gray-700 text-2xl font-bold">&times;</button>
+            <button onClick={toggleChat} className="text-gray-500 hover:text-gray-700 text-2xl font-bold">
+              &times;
+            </button>
           </div>
-          <div className="h-80 overflow-y-auto custom-scrollbar bg-gray-50 rounded-lg p-2">
+          <div className="h-64 sm:h-72 md:h-80 overflow-y-auto custom-scrollbar bg-gray-50 rounded-lg p-2">
             {messages.map((msg, index) => (
               <div
                 key={index}
                 className={`mb-2 p-3 rounded-lg text-sm max-w-xs ${
-                  msg.sender === "bot" ? "bg-gray-200 text-left self-start" : "bg-blue-500 text-white text-right self-end"
-                } ${msg.sender === "bot" ? "ml-0" : "ml-auto"}`}
+                  msg.sender === 'bot' ? 'bg-gray-200 text-left self-start' : 'bg-blue-500 text-white text-right self-end'
+                } ${msg.sender === 'bot' ? 'ml-0' : 'ml-auto'}`}
                 style={{
-                  alignSelf: msg.sender === "bot" ? "flex-start" : "flex-end",
-                  borderRadius: msg.sender === "bot" ? "15px 15px 15px 5px" : "15px 15px 5px 15px",
+                  alignSelf: msg.sender === 'bot' ? 'flex-start' : 'flex-end',
+                  borderRadius: msg.sender === 'bot' ? '15px 15px 15px 5px' : '15px 15px 5px 15px',
                 }}
               >
                 <p>{msg.text}</p>
-                <span className="text-xs text-gray-500 mt-1 block">
-                  {msg.time}
-                </span>
+                <span className="text-xs text-gray-500 mt-1 block">{msg.time}</span>
               </div>
             ))}
             {botTyping && (
@@ -110,12 +110,12 @@ const ChatBot = () => {
               type="text"
               value={newMessage}
               onChange={(e) => setNewMessage(e.target.value)}
-              className="flex-grow p-3 border rounded-l-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              className="flex-grow p-2 md:p-3 border rounded-l-lg focus:ring-2 focus:ring-blue-500 outline-none"
               placeholder="Scrivi un messaggio..."
             />
             <button
               onClick={handleSendMessage}
-              className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-r-lg focus:outline-none"
+              className="bg-blue-600 hover:bg-blue-700 text-white p-2 md:p-3 rounded-r-lg focus:outline-none"
             >
               Invia
             </button>
