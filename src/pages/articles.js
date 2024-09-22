@@ -2,11 +2,13 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Image from 'next/image';
 import CallToAction from './components/CallToAction';
+import ChatBot from './components/ChatBot';
 
 const Articles = () => {
   return (
     <>
       <Header />
+      <ChatBot/>
       <main className="bg-[#f4f7fa] py-16 px-4 md:px-8">
         {/* Titolo della pagina */}
         <div className="container mx-auto mb-16 text-center">

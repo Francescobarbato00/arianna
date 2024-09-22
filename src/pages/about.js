@@ -2,11 +2,13 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Image from 'next/image';
 import CallToAction from './components/CallToAction';
+import ChatBot from './components/ChatBot';
 
 const About = () => {
   return (
     <>
       <Header />
+      <ChatBot/>
 
       {/* Sezione Principale */}
       <main className="bg-[#e9f2f7] py-16 px-4 md:px-8">

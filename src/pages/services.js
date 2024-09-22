@@ -3,11 +3,12 @@ import Footer from './components/Footer';
 import Testimonials from './components/Testimonials';
 import CallToAction from './components/CallToAction';
 import Image from 'next/image';
-
+import ChatBot from './components/ChatBot';
 const Services = () => {
   return (
     <>
       <Header />
+      <ChatBot/>
       <main className="bg-[#e9f2f7] py-16 px-4 md:px-8">
         {/* Titolo e descrizione */}
         <div className="container mx-auto mb-16 text-center">
@@ -24,6 +25,7 @@ const Services = () => {
           
           {/* Card 1 */}
           <div className="bg-white p-8 shadow-lg rounded-lg transition-transform duration-300 transform hover:scale-105 hover:shadow-2xl text-center">
+          
             <Image
               src="/images/annette-black.jpg"
               alt="Annette Black"

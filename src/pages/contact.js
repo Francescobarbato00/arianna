@@ -1,11 +1,12 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa'; // Aggiungiamo delle icone per il contatto
-
+import ChatBot from './components/ChatBot';
 const Contact = () => {
   return (
     <>
       <Header />
+      <ChatBot/>
 
       {/* Sezione principale */}
       <main className="bg-[#e9f2f7] py-16 px-4 md:px-8">
