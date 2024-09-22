@@ -33,13 +33,13 @@ const Testimonials = () => {
   }, []);
 
   return (
-    <section className="bg-[#f0f4f8] py-16 flex justify-center items-center relative overflow-hidden">
+    <section className="bg-[#f0f4f8] py-10 md:py-16 flex justify-center items-center relative overflow-hidden">
       {/* Testimonial corrente */}
-      <div className="text-center max-w-4xl mx-4">
-        <p className="text-3xl italic text-[#00486d] font-light leading-relaxed mb-4">
+      <div className="text-center max-w-2xl md:max-w-4xl mx-4">
+        <p className="text-xl md:text-3xl italic text-[#00486d] font-light leading-relaxed mb-4">
           "{testimonials[currentTestimonial].text}"
         </p>
-        <p className="text-sm text-gray-500 font-medium">
+        <p className="text-sm md:text-base text-gray-500 font-medium">
           {testimonials[currentTestimonial].author}
         </p>
       </div>
@@ -47,7 +47,7 @@ const Testimonials = () => {
       {/* Freccia destra */}
       <button
         onClick={nextTestimonial}
-        className="absolute right-8 text-[#00486d] text-6xl opacity-70 hover:opacity-100 transition-opacity"
+        className="absolute right-4 md:right-8 text-[#00486d] text-4xl md:text-6xl opacity-70 hover:opacity-100 transition-opacity"
       >
         &#8250;
       </button>

@@ -26,23 +26,23 @@ const RecentArticles = () => {
   ];
 
   return (
-    <section className="bg-white py-16">
+    <section className="bg-white py-10 md:py-16">
       <div className="container mx-auto px-4">
         {/* Titolo */}
-        <h2 className="text-4xl font-bold text-[#00486d] mb-4">Articoli Recenti</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-[#00486d] mb-4">Articoli Recenti</h2>
 
         {/* Testo riempitivo sotto il titolo */}
-        <p className="text-lg text-gray-600 mb-12 max-w-2xl">
+        <p className="text-base md:text-lg text-gray-600 mb-8 md:mb-12 max-w-2xl">
           Rimani aggiornato con gli ultimi articoli su tendenze, strategie e soluzioni innovative. Non perdere le novità: continua a seguirci per ricevere consigli utili e informazioni rilevanti sul mondo legale.
         </p>
 
         {/* Griglia degli articoli */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {articles.map((article) => (
             <div
               key={article.id}
               className="bg-white shadow-lg overflow-hidden transform transition-transform duration-300 hover:scale-105"
-              style={{ height: '450px', borderRadius: '0' }} // Altezza aumentata e bordi quadrati
+              style={{ height: '420px' }} // Altezza ridotta per migliorare il layout mobile
             >
               {/* Immagine dell'articolo */}
               <div className="h-2/3">
@@ -56,9 +56,9 @@ const RecentArticles = () => {
               </div>
 
               {/* Contenuto dell'articolo */}
-              <div className="p-6 h-1/3 flex flex-col justify-between">
-                <p className="text-sm text-gray-500 mb-2">{article.date}</p>
-                <h3 className="text-xl font-semibold text-[#00486d] mb-2 leading-tight">
+              <div className="p-4 md:p-6 h-1/3 flex flex-col justify-between">
+                <p className="text-sm text-gray-500 mb-1 md:mb-2">{article.date}</p>
+                <h3 className="text-lg md:text-xl font-semibold text-[#00486d] mb-2 leading-tight">
                   {article.title}
                 </h3>
                 <a href="#" className="text-[#00486d] font-medium hover:underline">

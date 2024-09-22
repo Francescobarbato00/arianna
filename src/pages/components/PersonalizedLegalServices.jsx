@@ -6,10 +6,10 @@ const PersonalizedLegalServices = () => {
   const router = useRouter(); // Inizializza il router
 
   return (
-    <section className="relative bg-[#e9f2f7] py-20 flex flex-col md:flex-row items-center">
+    <section className="relative bg-[#e9f2f7] py-10 md:py-20 flex flex-col md:flex-row items-center">
       
       {/* Immagine a sinistra */}
-      <div className="w-full md:w-1/2">
+      <div className="w-full md:w-1/2 mb-8 md:mb-0">
         <Image
           src="/avv.jpeg" // Assicurati di usare il percorso corretto per l'immagine
           alt="Avvocato con valigetta"
@@ -20,10 +20,10 @@ const PersonalizedLegalServices = () => {
       </div>
 
       {/* Contenitore del testo a destra */}
-      <div className="relative w-full md:w-1/2 bg-[#00486d] p-12 text-white flex flex-col justify-center items-start">
+      <div className="relative w-full md:w-1/2 bg-[#00486d] p-8 md:p-12 text-white flex flex-col justify-center items-start">
         
-        {/* Puntini decorativi, posizionati dietro al testo */}
-        <div className="absolute top-0 right-[-50px] hidden lg:block">
+        {/* Puntini decorativi, posizionati dietro al testo (solo su grandi schermi) */}
+        <div className="absolute top-0 right-[-30px] hidden lg:block">
           <Image
             src="/1.svg" // Assicurati che il percorso sia corretto
             alt="Decorative Dots"
@@ -34,8 +34,8 @@ const PersonalizedLegalServices = () => {
         </div>
 
         {/* Testo principale */}
-        <h2 className="text-4xl font-bold mb-4">Servizi Legali Personalizzati</h2>
-        <p className="text-lg mb-6 leading-relaxed max-w-md">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4">Servizi Legali Personalizzati</h2>
+        <p className="text-base md:text-lg mb-6 leading-relaxed max-w-md">
           Non esiste una soluzione unica per tutte le necessità legali. Creiamo un team e una strategia specifica per i tuoi obiettivi desiderati.
         </p>
 
