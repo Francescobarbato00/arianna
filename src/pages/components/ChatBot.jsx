@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 // Funzione per ottenere l'orario corrente in formato HH:MM
 const getCurrentTime = () => {
@@ -72,13 +71,30 @@ const ChatBot = () => {
           onClick={toggleChat}
           className="bg-blue-600 hover:bg-blue-700 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg transition-transform transform hover:scale-105 focus:outline-none"
         >
-          <Image src="/chat.png" alt="Chat Icon" width={40} height={40} />
+          {/* Icona chat come SVG inline */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="w-8 h-8"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M7 8h10M7 12h4m-2 8l-5-5H4a2 2 0 01-2-2V6a2 2 0 012-2h16a2 2 0 012 2v7a2 2 0 01-2 2h-3l-5 5z"
+            />
+          </svg>
         </button>
       </div>
 
       {/* Finestra della chat */}
       {isOpen && (
-        <div className="fixed bottom-24 right-4 w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl bg-white shadow-2xl rounded-xl p-4 z-50 transform transition-all duration-300 ease-in-out">
+        <div
+          className={`fixed bottom-24 w-11/12 max-w-sm sm:max-w-md md:max-w-lg bg-white shadow-2xl rounded-xl p-4 z-50 transition-all duration-300 ease-in-out 
+          left-1/2 transform -translate-x-1/2 md:bottom-24 md:right-8 md:left-auto md:translate-x-0`}
+        >
           <div className="flex justify-between items-center border-b pb-2 mb-2">
             <h2 className="text-lg font-bold text-gray-800">Assistente Virtuale</h2>
             <button onClick={toggleChat} className="text-gray-500 hover:text-gray-700 text-2xl font-bold">
