@@ -8,9 +8,9 @@ const getCurrentTime = () => {
 
 const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([]); // Rimosso il messaggio preimpostato
+  const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
-  const [botTyping, setBotTyping] = useState(false); // Stato per simulare la scrittura del bot
+  const [botTyping, setBotTyping] = useState(false);
 
   const handleSendMessage = () => {
     if (newMessage.trim()) {
@@ -18,7 +18,6 @@ const ChatBot = () => {
       setMessages(updatedMessages);
       setNewMessage('');
 
-      // Simula una risposta automatica con l'effetto "typing"
       setBotTyping(true);
       setTimeout(() => {
         simulateTypingEffect('Grazie per il tuo messaggio! Ti risponderemo a breve.');
@@ -35,28 +34,25 @@ const ChatBot = () => {
         setMessages((prevMessages) => {
           const lastMessage = prevMessages[prevMessages.length - 1];
           if (lastMessage && lastMessage.sender === 'bot' && lastMessage.typing) {
-            // Se esiste già un messaggio "bot" in stato di scrittura, aggiorniamo solo il testo
             return [
               ...prevMessages.slice(0, -1),
               { ...lastMessage, text: displayedText },
             ];
           }
-          // Aggiungiamo un nuovo messaggio "bot" con stato di scrittura
           return [...prevMessages, { text: displayedText, sender: 'bot', time: getCurrentTime(), typing: true }];
         });
         index++;
       } else {
         clearInterval(typingInterval);
-        setBotTyping(false); // Fine della simulazione di scrittura
+        setBotTyping(false);
         setMessages((prevMessages) => {
-          // Rimuoviamo il flag "typing" dal messaggio finale
           const updatedMessages = prevMessages.map((msg, i) =>
             i === prevMessages.length - 1 ? { ...msg, typing: false } : msg
           );
           return updatedMessages;
         });
       }
-    }, 20); // Velocità di digitazione (più basso è il valore, più veloce sarà la scrittura)
+    }, 20);
   };
 
   const toggleChat = () => {
@@ -89,11 +85,12 @@ const ChatBot = () => {
         </button>
       </div>
 
-      {/* Finestra della chat */}
+      {/* Finestra della chat con effetto di entrata */}
       {isOpen && (
         <div
           className={`fixed bottom-24 w-11/12 max-w-sm sm:max-w-md md:max-w-lg bg-white shadow-2xl rounded-xl p-4 z-50 transition-all duration-300 ease-in-out 
-          left-1/2 transform -translate-x-1/2 md:bottom-24 md:right-8 md:left-auto md:translate-x-0`}
+          transform ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+          left-1/2 -translate-x-1/2 md:bottom-24 md:right-8 md:left-auto md:translate-x-0`}
         >
           <div className="flex justify-between items-center border-b pb-2 mb-2">
             <h2 className="text-lg font-bold text-gray-800">Assistente Virtuale</h2>
